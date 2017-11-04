@@ -1,20 +1,11 @@
-import tornado.ioloop
-import tornado.web
 import sys
+import tornado.ioloop
+
 from tornado.log import enable_pretty_logging
+from routes import ROUTES
+from application import Application
 
-class MainHandler(tornado.web.RequestHandler):
-    def get(self):
-        self.write("Hello, world")
-
-def make_app():
-    settings = dict(
-        debug=True
-    )
-
-    return tornado.web.Application([
-        (r"/", MainHandler),
-    ], **settings)
+PORT = 8080
 
 if __name__ == "__main__":
     enable_pretty_logging()
@@ -22,6 +13,6 @@ if __name__ == "__main__":
     args.append("--log_file_prefix=my_app.log")
     tornado.options.parse_command_line(args)
 
-    app = make_app()
-    app.listen(8888)
+    app = Application(ROUTES)
+    app.listen(PORT)
     tornado.ioloop.IOLoop.current().start()

@@ -51,8 +51,10 @@ class BaseHandler(RequestHandler):
 
 def request_counter(method):
     """
-    This anotation specify whether the request should be counted or not
+    This decorator specify whether the request should be counted or not; It's just
+    a simple example of how to user python decorator alongside Tornado coroutines.
     """
+
     @coroutine
     def counter(*args, **kw):
         """Adds +1 to application request counter"""

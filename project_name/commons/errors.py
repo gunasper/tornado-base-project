@@ -12,7 +12,7 @@ class Errors():
         self.http_status_code = http_status_code
 
     @property
-    def to_dict(self):
+    def to_dict(self) -> dict:
         """
         Creates an error dict to be returned by our API
         """

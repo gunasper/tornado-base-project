@@ -1,7 +1,7 @@
 pyenv = python3.5
 
 run: 
-	$(pyenv) project/app.py
+	$(pyenv) project_name/app.py
 	
 deps:
 	$(pyenv) -m pip install -r requirements

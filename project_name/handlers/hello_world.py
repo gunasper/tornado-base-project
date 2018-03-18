@@ -18,7 +18,7 @@ class HelloWorldHandler(BaseHandler):
         """
         pass
 
-    async def put(selfr):
+    async def put(self):
         """
         PUT
         """

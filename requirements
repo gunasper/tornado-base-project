@@ -1,2 +1,3 @@
 tornado
 pylint
+psycopg2-binary

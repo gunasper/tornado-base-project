@@ -42,7 +42,7 @@ MISSING_PARAMETER = lambda key: Errors("MISSING_PARAMETER",
 INVALID_FIELD = lambda key: Errors("INVALID_FIELD",
                                    "Field '{}' is invalid for this request.".format(key), 400)
 
-INVALID_PARAMETER = lambda key: Errors("INVALID_FIELD",
+INVALID_PARAMETER = lambda key: Errors("INVALID_PARAMETER",
                                        "Paramether '{}' is invalid for this request.".format(key), 400)
 
 DATABASE_ERROR = Errors("DATABASE_ERROR",

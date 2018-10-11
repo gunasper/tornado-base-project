@@ -35,15 +35,21 @@ METHOD_NOT_ALLOWED = Errors("METHOD_NOT_ALLOWED",
 MISSING_FIELD = lambda key: Errors("MISSING_FIELD",
                                    "Field {} is missing or has a null value.".format(key), 400)
 
-#We define 'paramether' as a value in request's URL
-MISSING_PARAMETER = lambda key: Errors("MISSING_PARAMETER",
-                                       "Paramether '{}' is missing or has a null value.".format(key), 400)
-
 INVALID_FIELD = lambda key: Errors("INVALID_FIELD",
                                    "Field '{}' is invalid for this request.".format(key), 400)
 
+INVALID_FIELD_TYPE = lambda key1, key2: Errors("INVALID_FIELD_TYPE",
+                                               "Type of field '{}' is invalid nd must be {}.".format(key1, key2), 400)
+
+#We define 'parameter' as a value in request's URL
+MISSING_PARAMETER = lambda key: Errors("MISSING_PARAMETER",
+                                       "Parameter '{}' is missing or has a null value.".format(key), 400)
+
 INVALID_PARAMETER = lambda key: Errors("INVALID_PARAMETER",
-                                       "Paramether '{}' is invalid for this request.".format(key), 400)
+                                       "Parameter '{}' is invalid for this request.".format(key), 400)
+
+INVALID_PARAMETER_TYPE = lambda key1, key2: Errors("INVALID_PARAMETER TYPE",
+                                                   "Type of parameter '{}' is invalid and must be {}.".format(key1, key2), 400)
 
 DATABASE_ERROR = Errors("DATABASE_ERROR",
                         "Something went wrong in our database. Please report this error.", 500)

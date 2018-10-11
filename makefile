@@ -11,7 +11,7 @@ docker-deps:
 
 docker-start:
 	cp ~/.ssh/id_rsa .
-	sudo docker build --rm -t search_api_image . --build-arg build=$(date)
+	sudo docker build --rm -t search_api_image . --build-arg build=$(date +%s)
 	sudo docker rm -f search_api_container; sudo docker run -e LANG=C.UTF-8 -p 8000:8000 --name="search_api_container" -d search_api_image;
 
 clear:

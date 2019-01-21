@@ -11,8 +11,8 @@ docker-deps:
 
 docker-start:
 	cp ~/.ssh/id_rsa .
-	sudo docker build --rm -t search_api_image . --build-arg build=$(date +%s)
-	sudo docker rm -f search_api_container; sudo docker run -e LANG=C.UTF-8 -p 8000:8000 --name="search_api_container" -d search_api_image;
+	sudo docker build --rm -t project_image . --build-arg build=$(date +%s)
+	sudo docker rm -f project_container; sudo docker run -e LANG=C.UTF-8 -p 5000:5000 --name="project_container" -d project_image;
 
 clear:
 	find . | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf

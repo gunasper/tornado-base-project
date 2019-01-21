@@ -12,7 +12,7 @@ class Errors():
         self.http_status_code = http_status_code
 
     @property
-    def to_dict(self) -> dict:
+    def json(self) -> dict:
         """
         Creates an error dict to be returned by our API
         """
@@ -53,3 +53,9 @@ INVALID_PARAMETER_TYPE = lambda key1, key2: Errors("INVALID_PARAMETER TYPE",
 
 DATABASE_ERROR = Errors("DATABASE_ERROR",
                         "Something went wrong in our database. Please report this error.", 500)
+
+UNAUTHORIZED = Errors("UNAUTHORIZED",
+                      "User not authorized to perform this action.", 403)
+
+UNAUTHENTICATED = Errors("UNAUTHENTICATED",
+                         "User not authenticated. Please, perform an authentication before execute this action.", 401)

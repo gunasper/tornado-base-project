@@ -2,7 +2,7 @@ import sys
 import tornado.ioloop
 import tornado.httpserver
 from tornado.log import enable_pretty_logging
-from routes import ROUTES
+from routes.routes import ROUTES
 from application import Application
 
 PORT = 5000

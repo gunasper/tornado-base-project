@@ -11,7 +11,7 @@ docker-deps:
 
 docker-start:
 	cp ~/.ssh/id_rsa .
-	sudo docker build --rm -t project_image . --build-arg build=$(date +%s)
+	sudo docker build --rm -t project_image . --build-arg build=$(shell date +%s)
 	sudo docker rm -f project_container; sudo docker run -e LANG=C.UTF-8 -p 5000:5000 --name="project_container" -d project_image;
 
 clear:

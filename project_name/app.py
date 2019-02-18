@@ -1,3 +1,4 @@
+import argparse
 import sys
 import tornado.ioloop
 import tornado.httpserver
@@ -5,8 +6,21 @@ from tornado.log import enable_pretty_logging
 from routes.routes import ROUTES
 from application import Application
 
+
+#custom args
+parser = argparse.ArgumentParser()
+parser.add_argument("--prod", action='store_true', help="Starts server in production mode")
+parser.add_argument("--log_file_prefix", default='my_app.log', help="Select where log file will be saved")
+args = parser.parse_args()
+
 PORT = 5000
-AUTORELOAD = True
+AUTORELOAD = not args.prod
+
+#tornado args
+args = sys.argv
+args.append("--log_file_prefix=my_app.log")
+if '--prod' in args:
+    args.remove('--prod')
 
 if __name__ == "__main__":
     

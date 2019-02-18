@@ -26,5 +26,5 @@ RUN git pull origin master
 RUN make deps
 
 EXPOSE 8000
-CMD make run
+CMD make run-prod
 
